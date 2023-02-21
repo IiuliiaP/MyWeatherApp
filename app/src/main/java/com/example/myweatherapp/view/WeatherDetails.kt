@@ -48,7 +48,10 @@ class WeatherDetails : Fragment() {
             }
             is AppState.Success -> {
                 binding.loadingLayout.visibility = View.GONE
-                binding.message.text = "все работает"
+                binding.message.visibility = View.GONE
+                binding.cityName.text = data.weatherData.city.toString()
+                binding.temperature.text = data.weatherData.temperature.toString()
+                Toast.makeText(requireContext(),"успешная загрузка",Toast.LENGTH_LONG).show()
             }
         }
 
